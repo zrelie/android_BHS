@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/rs"
+    tools:context="com.example.amichais.bhs.Morning_shift">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="ציוד מאבטח"
+                android:textSize="30dp"
+                android:id="@+id/textView4"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textColor="#000000" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_weight="0.12"
+                android:weightSum="1">
+
+                <CheckBox
+                    android:layout_width="103dp"
+                    android:layout_height="wrap_content"
+                    android:text="גז פלפל"
+                    android:id="@+id/checkBox"
+                    android:checked="false"
+                    android:onClick="select"
+                    android:textColor="#ffffff" />
+
+                <CheckBox
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="פנס"
+                    android:id="@+id/checkBox2"
+                    android:checked="false"
+                    android:onClick="select"
+                    android:textColor="#ffffff" />
+
+                <CheckBox
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="אקדח ומחסנית"
+                    android:id="@+id/checkBox3"
+                    android:layout_weight="0.56"
+                    android:checked="false"
+                    android:onClick="select"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:weightSum="1">
+
+                <CheckBox
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:text=" מפתחות"
+                    android:id="@+id/checkBox4"
+                    android:onClick="select"
+                    android:textColor="#ffffff" />
+
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="קריאת נהלי פתיחה באש"
+                    android:id="@+id/checkBox6"
+                    android:onClick="select"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="פתיחת צהריים"
+                android:id="@+id/textView7"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textColor="#000000" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:weightSum="1"
+                android:layout_gravity="right">
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="נעילת דלתות אם אין אירוע"
+                    android:id="@+id/checkBox7"
+                    android:onClick="select"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="דריכת אזעקה ב18:00 במידה ואין עובדים "
+                    android:id="@+id/checkBox8"
+                    android:checked="false"
+                    android:onClick="select"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="כיבוי אורות פנימיים והדלקת אורות חיצוניים"
+                android:id="@+id/checkBox14"
+                android:checked="false"
+                android:onClick="select"
+                android:textColor="#ffffff" />
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="בדיקה שאין ציוד מפוזר בחוץ"
+                android:id="@+id/checkBox15"
+                android:checked="false"
+                android:onClick="select"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="סריקות"
+                android:textSize="20dp"
+                android:id="@+id/textView8"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:layout_weight="0.06">
+
+                <Button
+                    android:layout_width="68dp"
+                    android:layout_height="34dp"
+                    android:text="שעה"
+                    android:textSize="10dp"
+                    android:id="@+id/button18" />
+
+                <EditText
+                    android:layout_width="169dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editText"
+                    android:textColor="#ffffff" />
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="בוצע בזמן"
+                    android:id="@+id/checkBox9"
+                    android:onClick="select"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" >
+
+                <Button
+                    android:layout_width="68dp"
+                    android:layout_height="34dp"
+                    android:text="שעה"
+                    android:textSize="10dp"
+                    android:id="@+id/button19" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editText3"
+                    android:layout_weight="1"
+                    android:textColor="#ffffff" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="בוצע בזמן"
+                    android:id="@+id/checkBox10"
+                    android:layout_weight="0.2"
+                    android:onClick="select"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" >
+
+                <Button
+                    android:layout_width="66dp"
+                    android:layout_height="34dp"
+                    android:text="שעה"
+                    android:textSize="10dp"
+                    android:id="@+id/button20" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editText4"
+                    android:layout_weight="1"
+                    android:textColor="#ffffff" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="בוצע בזמן"
+                    android:id="@+id/checkBox11"
+                    android:layout_weight="0.2"
+                    android:onClick="select"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <Button
+                    android:layout_width="68dp"
+                    android:layout_height="34dp"
+                    android:text="שעה"
+                    android:textSize="10dp"
+                    android:id="@+id/button21" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editText5"
+
+                    android:layout_weight="1"
+                    android:textColor="#ffffff" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="בוצע בזמן"
+                    android:id="@+id/checkBox12"
+                    android:layout_weight="0.2"
+                    android:onClick="select"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="סריקת מצלמות"
+                    android:height="80dp"
+                    android:id="@+id/textView6"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#2bff00" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="         יציאה לסריקה"
+                    android:height="80dp"
+                    android:id="@+id/textView9"
+                    android:layout_weight="1"
+                    android:textColor="#2bff00" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.67"
+                android:weightSum="1">
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="סרקתי מצלמות"
+                    android:id="@+id/button25"
+                    android:layout_weight="0.40" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="יוצא לסריקה"
+                    android:id="@+id/button26"
+                    android:layout_weight="0.48" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="הערות ואירועים חריגים"
+                android:id="@+id/textView18"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="329dp"
+                android:layout_height="24dp">
+
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/editText15"
+                android:textColor="#ffffff" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="שלח"
+                android:layout_margin="30dp"
+                android:id="@+id/button8"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

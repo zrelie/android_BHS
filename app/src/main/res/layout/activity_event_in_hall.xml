@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/rs"
+    tools:context="com.example.amichais.bhs.event_in_hall">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="169dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text=" סיכום אירוע"
+                android:textSize="25dp"
+                android:id="@+id/textView8"
+                android:layout_gravity="center_horizontal"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/textView4"
+                android:layout_alignEnd="@+id/textView4"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignBottom="@+id/linearLayout3"
+                android:id="@+id/radioGroup"
+                android:layout_below="@+id/textView8">
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="בר או בת מצווה"
+                    android:id="@+id/radioButton"
+                    android:textColor="#ffffff" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="חתונה"
+                    android:id="@+id/radioButton2"
+                    android:textColor="#ffffff" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="עסקי"
+                    android:id="@+id/radioButton3"
+                    android:checked="false"
+                    android:textColor="#ffffff" />
+
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout"
+                android:layout_below="@+id/textView8"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="15dp">
+
+                <EditText
+                    android:id="@+id/editText3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/linearLayout4"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="48dp"
+                    android:layout_marginRight="48dp"
+                    android:layout_weight="1"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="אחראי אירוע"
+                    android:id="@+id/textView10"
+                    android:gravity="top|center_vertical|center"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_below="@+id/linearLayout"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/linearLayout2">
+
+                <EditText
+                    android:id="@+id/editText4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="מאבטחים באירוע"
+                    android:id="@+id/textView11"
+                    android:gravity="top|center_vertical|center"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/linearLayout2"
+                android:id="@+id/linearLayout3">
+
+                <EditText
+                    android:id="@+id/editText5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.38"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="מספר שעות"
+                    android:id="@+id/textView12"
+                    android:gravity="top|center_vertical|center"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="ציוד מאבטח"
+                android:textSize="25dp"
+                android:id="@+id/textView4"
+                android:layout_gravity="center_horizontal"
+                android:layout_below="@+id/radioGroup"
+                android:layout_centerHorizontal="true"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:weightSum="1"
+                android:id="@+id/linearLayout4"
+                android:gravity="right"
+                android:layout_below="@+id/textView4">
+
+                <CheckBox
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:text=" רישיונות"
+                    android:id="@+id/checkBox4"
+                    android:textColor="#ffffff"
+                    android:textColorHighlight="#ff0000"
+                    android:textColorHint="#ff0000"
+                    android:onClick="select"
+                    android:textColorLink="#ff0000" />
+
+                <CheckBox
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="קשר"
+                    android:id="@+id/checkBox5"
+                    android:textColor="#ffffff"
+                    android:textColorHighlight="#ff0000"
+                    android:textColorHint="#ff0000"
+                    android:onClick="select"
+                    android:textColorLink="#ff0000" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="כובע אבטחה"
+                    android:id="@+id/checkBox6"
+                    android:textColor="#ffffff"
+                    android:textColorHighlight="#ff0000"
+                    android:textColorHint="#ff0000"
+                    android:onClick="select"
+                    android:textColorLink="#ff0000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:gravity="right"
+                android:layout_height="20dp"
+                android:layout_weight="0.12"
+                android:weightSum="1"
+                android:layout_alignBottom="@+id/linearLayout4"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/linearLayout5">
+
+                <CheckBox
+                    android:layout_width="103dp"
+                    android:layout_height="wrap_content"
+                    android:text="גז פלפל"
+                    android:id="@+id/checkBox"
+                    android:textColor="#ffffff"
+                    android:onClick="select"
+                    android:checked="false" />
+
+                <CheckBox
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="פנס"
+                    android:id="@+id/checkBox2"
+                    android:textColor="#ffffff"
+                    android:onClick="select"
+                    android:checked="false" />
+
+                <CheckBox
+                    android:id="@+id/checkBox3"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.56"
+                    android:checked="false"
+                    android:text="אקדח ומחסנית"
+                    android:onClick="select"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="הערות ואירועים חריגים"
+                android:id="@+id/textView5"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/editText9"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#ffffff" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:text="שלח"
+                android:textSize="20dp"
+                android:id="@+id/button9"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/textView4"
+                android:layout_toLeftOf="@+id/textView4"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        V
+    </RelativeLayout>
+</ScrollView>
