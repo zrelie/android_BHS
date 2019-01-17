@@ -80,7 +80,9 @@ public class Escort extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "לא כל השדות מלאים נא למלא את כולם", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    getBaseContext().unregisterReceiver(batBroadcast);
+                    try {
+                        getBaseContext().unregisterReceiver(batBroadcast);
+                    }catch (Exception e){}
                     SharedPreferences sp = getSharedPreferences("LogPref", MODE_PRIVATE);
                     SharedPreferences.Editor editor;
                     editor = sp.edit();
@@ -97,7 +99,7 @@ public class Escort extends AppCompatActivity {
                     editor.commit();
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + "0525878674"));
                     intent.putExtra("sms_body", "הליווי הסתיים" + "\n\n" + "מזמין הליווי הוא:   " + the_order.getText().toString() + "\n"
-                            + "איש הקשר הוא:   " + contact.getText().toString() + "\n" + "מקום הליווי: " + were.getText().toString() + "\n" + "סכום הוצאות" + expenses.getText().toString());
+                            + "איש הקשר הוא:   " + contact.getText().toString() + "\n" + "מקום הליווי: " + were.getText().toString() + "\n" + "סכום הוצאות: " + expenses.getText().toString());
                     imageView.setImageBitmap(null);
                     startActivity(Intent.createChooser(intent, "send"));
                 }
