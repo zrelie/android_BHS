@@ -18,24 +18,23 @@ public class Logs extends AppCompatActivity {
         log = (TextView)findViewById(R.id.textView19) ;
         SharedPreferences sp = getSharedPreferences("LogPref", MODE_PRIVATE);
         Map<String, ?> allEntries = sp.getAll();
-        String[] entries = new String[allEntries.size()];
+        String[] entries = new String[allEntries.size()-1];
         int index = 0;
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
             if (!entry.getKey().equals("index")) {
                 entries[index] = entry.getKey() + entry.getValue();
                 index++;
             }
-//            if (!entry.getKey().equals("index")) {
-//                logs += entry.getKey() + ": " + entry.getValue().toString();
-//                logs += "\n";
-//                logs = logs.replace("null", "");
-//            }
         }
 
+        logs = "";
         for (int i=0 ; i<entries.length ; i++){
-            for (int j=0 ; j<entries.length ; i++){
-                if (Integer.parseInt(entries[j].substring(0,entries[j].indexOf("-")).replaceAll("[^0-9]", "")) == i+1)
-                    logs+=entries[j];
+            for (int j=0 ; j<entries.length ; j++){
+                if (Integer.parseInt(entries[j].substring(0,entries[j].indexOf("-")).replaceAll("[^0-9]", "")) == i+1) {
+                    logs += entries[j];
+                    logs += "\n";
+                    break;
+                }
             }
         }
 
