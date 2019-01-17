@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/rs"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context="com.example.amichais.bhs.Logs">
 
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <TextView
+        android:id="@+id/textView19"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/rs"
-        tools:context=".Logs">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:scrollbars="vertical"
+        android:textColor="@color/white"
+        android:text="" />
 
-
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textColor="@color/white"
-            android:text="" />
-
-
-    </LinearLayout>
-</ScrollView>
+    <Button
+        android:id="@+id/button29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="שלח" />
+</LinearLayout>
