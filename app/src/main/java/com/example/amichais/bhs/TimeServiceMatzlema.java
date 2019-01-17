@@ -11,7 +11,6 @@ import java.util.TimerTask;
 public class TimeServiceMatzlema extends Service {
 
     private final long INTERVAL = 15 * 1000;
-    private Handler mHandler;
     private Timer mTimer1;
     private MediaPlayer sound;
 
@@ -23,7 +22,6 @@ public class TimeServiceMatzlema extends Service {
 
     @Override
     public void onCreate() {
-        mHandler = new Handler();
         mTimer1 = new Timer();
     }
 
@@ -49,13 +47,12 @@ public class TimeServiceMatzlema extends Service {
 
         @Override
         public void run() {
-            mHandler.post(new Runnable() {
-
+            new Thread(){
                 @Override
                 public void run() {
                     sound.start();
                 }
-            });
+            }.start();
         }
     }
 }
