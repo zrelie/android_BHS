@@ -29,7 +29,7 @@ public class Escort extends AppCompatActivity {
     private EditText contact;
     private EditText were;
     private EditText expenses;
-    private String name;
+    public String name;
     private String date;
 
     LowBatBroadcast batBroadcast;
@@ -50,7 +50,7 @@ public class Escort extends AppCompatActivity {
         were = (EditText)findViewById(R.id.editText13);
         expenses = (EditText)findViewById(R.id.editText14);
 
-        batBroadcast = new LowBatBroadcast();
+        batBroadcast = new LowBatBroadcast(name);
 
         take_pic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,5 +133,9 @@ public class Escort extends AppCompatActivity {
         bitmap = (Bitmap)data.getExtras().get("data");
         imageView.setImageBitmap(bitmap);
 
+    }
+
+    public String getName(){
+        return name;
     }
 }
