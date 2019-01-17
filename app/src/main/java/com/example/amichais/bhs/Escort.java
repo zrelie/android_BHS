@@ -68,7 +68,7 @@ public class Escort extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + "0525878674") );
                 intent.putExtra( "sms_body", "ההליווי התחיל" );
                 startActivity(intent);
-
+                getBaseContext().registerReceiver(batBroadcast, new IntentFilter(Intent.ACTION_BATTERY_LOW));
             }
         });
 
@@ -118,8 +118,6 @@ public class Escort extends AppCompatActivity {
             case 1: {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-                    getBaseContext().registerReceiver(batBroadcast, new IntentFilter(Intent.ACTION_SCREEN_ON));
                 } else {
                 }
                 return;

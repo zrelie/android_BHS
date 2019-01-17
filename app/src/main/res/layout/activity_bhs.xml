@@ -39,7 +39,7 @@
             android:id="@+id/editText"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
-            android:text="ג"
+            android:text=""
             android:gravity="center"
             android:layout_weight="0.73"
             android:textColor="#ffffff" />
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.14"
             android:ems="10"
-            android:text="1"
+            android:text=""
             android:gravity="center"
             android:inputType="textPassword"
             android:textColor="#ffffff" />
@@ -106,7 +106,7 @@
             android:layout_weight="0.86"
             android:ems="10"
             android:inputType="date"
-            android:text="10/12/2018"
+            android:text=""
             android:gravity="center"
             android:textColor="#ffffff" />
 
