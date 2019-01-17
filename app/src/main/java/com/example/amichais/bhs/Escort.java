@@ -1,10 +1,15 @@
 package com.example.amichais.bhs;
 
+
+import android.Manifest;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,8 +17,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import java.net.URI;
 
 public class Escort extends AppCompatActivity {
 
@@ -28,9 +31,8 @@ public class Escort extends AppCompatActivity {
     private EditText expenses;
     private String name;
     private String date;
-    URI uri;
-    Intent data;
-    public static final int PICE_GAL = 101;
+
+    LowBatBroadcast batBroadcast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,8 @@ public class Escort extends AppCompatActivity {
         contact = (EditText)findViewById(R.id.editText12);
         were = (EditText)findViewById(R.id.editText13);
         expenses = (EditText)findViewById(R.id.editText14);
+
+        batBroadcast = new LowBatBroadcast();
 
         take_pic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +80,7 @@ public class Escort extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "לא כל השדות מלאים נא למלא את כולם", Toast.LENGTH_LONG).show();
                 }
                 else {
+                    getBaseContext().unregisterReceiver(batBroadcast);
                     SharedPreferences sp = getSharedPreferences("LogPref", MODE_PRIVATE);
                     SharedPreferences.Editor editor;
                     editor = sp.edit();
@@ -87,6 +92,7 @@ public class Escort extends AppCompatActivity {
                     } else
                         editor.putString("index", "1");
 
+
                     editor.putString(index + " - " + name, "  " + date + "  ליווי");
                     editor.commit();
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + "0525878674"));
@@ -97,12 +103,37 @@ public class Escort extends AppCompatActivity {
                 }
             }
         });
+
+
+        ActivityCompat.requestPermissions(Escort.this,
+                new String[]{Manifest.permission.SEND_SMS},
+                1);
     }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    getBaseContext().registerReceiver(batBroadcast, new IntentFilter(Intent.ACTION_SCREEN_ON));
+                } else {
+                }
+                return;
+            }
+        }
+    }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         bitmap = (Bitmap)data.getExtras().get("data");
         imageView.setImageBitmap(bitmap);
+
     }
 }

@@ -84,7 +84,8 @@ public class BHS extends AppCompatActivity {
         year_x = cal.get(Calendar.YEAR);
         month_x = cal.get(Calendar.MONTH);
         day_x = cal.get(Calendar.DAY_OF_MONTH);
-        showDialogOn(); }
+        showDialogOn();
+    }
 
     private boolean goodPss() {
 
