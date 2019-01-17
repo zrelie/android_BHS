@@ -169,4 +169,7 @@ public class night_shift extends Shift_Type {
         stopService(new Intent(this, TimeServiceSrika.class));
         stopService(new Intent(this, TimeServiceMatzlema.class));
     }
+    public void select(View view) {
+        super.select(view);
+    }
 }

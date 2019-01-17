@@ -45,7 +45,11 @@ public class BHS extends AppCompatActivity {
         log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(logs);
+                if(textUsername.getText().toString().equals("בוס") && password.getText().toString().equals("111"))
+                    startActivity(logs);
+                else
+                    Toast.makeText(getApplicationContext(), "אינך מורשה באזור זה", Toast.LENGTH_LONG).show();
+
             }
         });
 

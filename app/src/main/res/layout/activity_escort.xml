@@ -109,7 +109,7 @@
                 android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="סכום הקבלות"
+                android:text="סכום הוצאות"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#ffffff" />
 
@@ -127,7 +127,7 @@
                 android:id="@+id/button27"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="הוסף קבלות מהליווי" />
+                android:text="האובייק שלי בליווי" />
 
 
         </LinearLayout>
@@ -135,8 +135,9 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="center" />
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop" />
 
         <Button
             android:id="@+id/button17"
