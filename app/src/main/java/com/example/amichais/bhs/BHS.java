@@ -9,49 +9,45 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.logging.SimpleFormatter;
 import android.app.DatePickerDialog;
 import java.util.Calendar;
 import android.widget.DatePicker;
 
 public class BHS extends AppCompatActivity {
-    Intent I;
-    Button buttonLogin;
-    Button buttonD;
-    EditText textUsername;
-    EditText password;
-    EditText date;
-    String dateOfTheTask;
-    int year_x;
-    int month_x;
-    int day_x;
-    String theEmail;
-    static final int DIALOG_ID = 0;
-
-
-    String[] pass = {"108","116","102","89","68","88","120","114","20","11","113","123","121","1","79","122","103","115"};
-
-
+    private Intent I;
+    private Intent logs;
+    private Button buttonLogin;
+    private Button buttonD;
+    private Button log;
+    private EditText textUsername;
+    private EditText password;
+    private EditText date;
+    private String dateOfTheTask;
+    private int year_x;
+    private int month_x;
+    private int day_x;
+    private String theEmail;
+    private static final int DIALOG_ID = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         I = new Intent(BHS.this, Choose_a_shift.class);
-
-
+        logs = new Intent(this, Logs.class);
         setContentView(R.layout.activity_bhs);
 
         buttonLogin = (Button) findViewById(R.id.button);
         textUsername = (EditText) findViewById(R.id.editText);
         password = (EditText) findViewById(R.id.editText2);
         date = (EditText)findViewById(R.id.editText7);
+        log = (Button) findViewById(R.id.button28);
+
+        log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(logs);
+            }
+        });
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
 
@@ -71,6 +67,8 @@ public class BHS extends AppCompatActivity {
                 else {
                     theEmail = " שם מאבטח :    " + textUsername.getText().toString() + "\n" + "תאריך  :  "  + date.getText().toString();
                     I.putExtra("email",theEmail);
+                    I.putExtra("name",textUsername.getText().toString());
+                    I.putExtra("date",date.getText().toString());
                     startActivity(I);
                 }
 
@@ -85,9 +83,19 @@ public class BHS extends AppCompatActivity {
         showDialogOn(); }
 
     private boolean goodPss() {
-        for(int i = 0; i < pass.length ; i++)
-            if(password.getText().toString().equals(pass[i]))
+
+        SharedPreferences sp = getSharedPreferences("MyPref", MODE_PRIVATE);
+        if(!sp.getString(textUsername.getText().toString(),"").equals("")) {
+            if ((sp.getString(textUsername.getText().toString(), "").equals(password.getText().toString())))
                 return true;
+        }
+        else if((password.getText().toString().length() >=5) && (password.getText().toString().substring(0,5).equals("abcde"))){
+            SharedPreferences.Editor editor;
+            editor = sp.edit();
+            editor.putString(textUsername.getText().toString(), password.getText().toString().substring(5));
+            editor.commit();
+            return true;
+        }
         return false;
     }
 

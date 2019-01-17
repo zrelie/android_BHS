@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.14"
             android:ems="10"
-            android:text="108"
+            android:text="4"
             android:gravity="center"
             android:inputType="textPassword"
             android:textColor="#ffffff" />
@@ -151,6 +151,22 @@
             android:layout_height="78dp"
             android:text="התחבר "
             android:textSize="25dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/button28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:text="דוח מנהל" />
+
     </LinearLayout>
 
 </LinearLayout>

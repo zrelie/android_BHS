@@ -1,0 +1,61 @@
+package com.example.amichais.bhs;
+
+import android.app.Service;
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Handler;
+import android.os.IBinder;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class TimeServiceMatzlema extends Service {
+
+    private final long INTERVAL = 15 * 1000;
+    private Handler mHandler;
+    private Timer mTimer1;
+    private MediaPlayer sound;
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+
+    @Override
+    public void onCreate() {
+        mHandler = new Handler();
+        mTimer1 = new Timer();
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
+        sound = MediaPlayer.create(this, R.raw.matslema);
+        mTimer1.schedule(new TimeDisplayTimerTask(), INTERVAL);
+
+        return START_STICKY;
+    }
+
+
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+
+        sound.stop();
+    }
+
+    class TimeDisplayTimerTask extends TimerTask {
+
+        @Override
+        public void run() {
+            mHandler.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    sound.start();
+                }
+            });
+        }
+    }
+}

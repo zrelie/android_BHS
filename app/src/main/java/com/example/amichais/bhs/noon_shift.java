@@ -1,81 +1,45 @@
 package com.example.amichais.bhs;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.CountDownTimer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-
-import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-public class noon_shift extends AppCompatActivity {
-    Button sentEmail;
 
-    int numOfSricot = 0;
-    boolean isFinis1 = false;
-    boolean isFinis2 = false;
+public class noon_shift extends Shift_Type {
+
+    private int isD = 0;
+
+    private Button timeD;
+
+    private EditText EDD;
+
+    private String theEmail;
+    private String temp_mail;
 
 
-    MediaPlayer matslema;
-    MediaPlayer elarm;
-    boolean sricot = false;
-    boolean sricot2 = false;
 
-    int counter = 59;
-    int counterOfMimForTimer1 = 44;
-    int counterOfhForTimer2 = 1;
-    int counterOfMimForTimer2 = 29;
-    int counter2 = 59;
-
-    Button mazlema;
-    Button srica;
-
-    int isA = 0;
-    int isB = 0;
-    int isC = 0;
-    int isD = 0;
-
-    Button timeA;
-    Button timeB;
-    Button timeC;
-    Button timeD;
-    static final  int DIALOG_ID =0;
-    int hour_x;
-    int cunter = 0;
-    int minute_x;
-    String s;
-
-    EditText ET;
-
-    EditText EDA;
-    EditText EDB;
-    EditText EDC;
-    EditText EDD;
-
-    EditText EDE;
-    String theEmail;
-    String temp_mail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         theEmail = getIntent().getExtras().getString("email");
         temp_mail = theEmail;
+        name = getIntent().getExtras().getString("name");
+        date = getIntent().getExtras().getString("date");
         setContentView(R.layout.activity_noon_shift);
 
         time1();
         time2();
+
+        startService(new Intent(this, TimeServiceSrika.class));
+        startService(new Intent(this, TimeServiceMatzlema.class));
 
         mazlema = (Button)findViewById(R.id.button25);
         srica = (Button)findViewById(R.id.button26);
@@ -86,7 +50,6 @@ public class noon_shift extends AppCompatActivity {
         EDB= (EditText)findViewById(R.id.editText3);
         EDC= (EditText)findViewById(R.id.editText4);
         EDD= (EditText)findViewById(R.id.editText5);
-        EDE= (EditText)findViewById(R.id.editText6);
         sentEmail = (Button)findViewById(R.id.button8);
 
         sentEmail.setOnClickListener(new View.OnClickListener() {
@@ -94,9 +57,14 @@ public class noon_shift extends AppCompatActivity {
             public void onClick(View v) {
                 if(!theEmail.equals(temp_mail))
                     theEmail = temp_mail;
-                if (cunter < 13) {
+                if (counter < 13) {
                     Toast.makeText(getApplicationContext(), "לא כל השדות מלאים נא למלא את כולם" , Toast.LENGTH_LONG).show();
                 } else {
+                    SharedPreferences sp = getSharedPreferences("LogPref", MODE_PRIVATE);
+                    SharedPreferences.Editor editor;
+                    editor = sp.edit();
+                    editor.putString(name, "  " + date + "  משמרת צהריים");
+                    editor.commit();
                     theEmail += "\n" +
                             "-------------------------------------------------------" + "\n" + "סוג משמרת :  משמרת עולמיא  " ;
                     theEmail += "\n" + "משמרת : משמרת ערב" ;
@@ -131,32 +99,26 @@ public class noon_shift extends AppCompatActivity {
         });
         showTimePickerDialog();
 
-
-
-
-
         mazlema.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isFinis1) {
+                stopService(new Intent(v.getContext(), TimeServiceMatzlema.class));
+                startService(new Intent(v.getContext(), TimeServiceMatzlema.class));
+                if (isFinish1) {
                     final TextView time = (TextView) findViewById(R.id.textView6);
                     time.setTextColor(Color.GREEN);
-                    matslema.stop();
-                    isFinis1 = false;
+                    isFinish1 = false;
                     time1();
                 }
             }
         });
 
-
-
-
-
-
         srica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isFinis2) {
+                stopService(new Intent(v.getContext(), TimeServiceSrika.class));
+                startService(new Intent(v.getContext(), TimeServiceSrika.class));
+                if (isFinish2) {
                     numOfSricot++;
                     if (numOfSricot == 1)
                         EDA.setText("17:30");
@@ -170,21 +132,11 @@ public class noon_shift extends AppCompatActivity {
 
                     final TextView time2 = (TextView) findViewById(R.id.textView9);
                     time2.setTextColor(Color.GREEN);
-                    elarm.stop();
-                    isFinis2 = false;
+                    isFinish2 = false;
                     time2();
                 }
             }
         });
-
-
-
-    }
-    @Override
-    protected Dialog onCreateDialog(int id){
-        if(id == DIALOG_ID)
-            return new TimePickerDialog(noon_shift.this,kTimePickerListner,hour_x,minute_x,true);
-        return  null;
     }
 
     protected TimePickerDialog.OnTimeSetListener  kTimePickerListner = new TimePickerDialog.OnTimeSetListener() {
@@ -192,7 +144,7 @@ public class noon_shift extends AppCompatActivity {
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             hour_x = hourOfDay;
             minute_x = minute;
-            s = minute_x + " : " + hour_x + "  ";
+            s = hour_x + " : " + minute_x + "  ";
 
             if(isA ==1) {
                 EDA.setText(s);
@@ -252,71 +204,10 @@ public class noon_shift extends AppCompatActivity {
 
     }
 
-    public void time1(){
-        matslema = MediaPlayer.create(this,R.raw.matslema);
-        counter=59;
-        counterOfMimForTimer1 = 44;
-        final  TextView time = (TextView)findViewById(R.id.textView6);
-        new CountDownTimer(2652000  ,1000){
-            public void onTick(long milli_sec){
-                time.setText("סריקת מצלמות" + "\n" + String.valueOf(counterOfMimForTimer1) + ":" +String.valueOf(counter)+"\n");
-                counter--;
-                if(counter == 0) {
-                    counterOfMimForTimer1--;
-                    counter=59;
-                }
-                if(counterOfMimForTimer1<0)
-                    time.setText("סריקת מצלמות" + "\n" + "00:00" +"\n");
-            }
-            public void onFinish(){
-                time.setTextColor(Color.RED);
-                time.setText("סרוק מצלמות!" + "\n" + "סרוק מצלמות!");
-                matslema.start();
-                isFinis1 = true;
-
-            }
-        }.start();
-    }
-
-    private void time2() {
-        elarm = MediaPlayer.create(this,R.raw.elarm);
-        counterOfhForTimer2 = 1;
-        counterOfMimForTimer2 = 29;
-        counter2=59;
-        final  TextView time2 = (TextView)findViewById(R.id.textView9);
-        new CountDownTimer(5244000   ,1000){
-            public void onTick(long milli_sec){
-                time2.setText("יציאה לסריקה" + "\n" + String.valueOf(counterOfhForTimer2) +  ":" + String.valueOf(counterOfMimForTimer2) +  ":" +String.valueOf(counter2));
-                counter2--;
-                if(counter2==0){
-                    counterOfMimForTimer2--;
-                    counter2 = 59;
-                }
-                if((counterOfMimForTimer2==0)&&(counterOfhForTimer2==1)) {
-                    counterOfhForTimer2 --;
-                    counterOfMimForTimer2 = 59;
-                }
-                if(counterOfMimForTimer1<0)
-                    time2.setText("יציאה לסריקה" + "\n" + "00:00" +"\n");
-
-            }
-            public void onFinish(){
-                time2.setTextColor(Color.RED);
-                time2.setText("צא לסריקה!" + "\n" + "צא לסריקה!");
-                elarm.start();
-                isFinis2 = true;
-            }
-        }.start();
-    }
-
-    public void select(View view){
-        boolean checked = ((CheckBox) view).isChecked();
-        if(checked)
-            cunter ++;
-        else
-            cunter--;
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        stopService(new Intent(this, TimeServiceSrika.class));
+        stopService(new Intent(this, TimeServiceMatzlema.class));
     }
 }
-
-

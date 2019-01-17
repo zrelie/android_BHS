@@ -1,32 +1,23 @@
 package com.example.amichais.bhs;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 public class shift_in_hall extends AppCompatActivity {
-    Intent I_A;
-    Intent I_B;
-    Intent I_C;
+    private Intent I_A;
+    private Intent I_B;
+    private Intent I_C;
 
-    Button button_A;
-    Button button_B;
-    Button button_C;
-    String theEmail;
+    private Button button_A;
+    private Button button_B;
+    private Button button_C;
+    private String theEmail;
+    private String name;
+    private String date;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +27,8 @@ public class shift_in_hall extends AppCompatActivity {
         I_C = new Intent(shift_in_hall.this, night_shift.class);
 
         theEmail = getIntent().getExtras().getString("email");
+        name = getIntent().getExtras().getString("name");
+        date = getIntent().getExtras().getString("date");
 
         setContentView(R.layout.activity_shift_in_hall);
 
@@ -47,6 +40,8 @@ public class shift_in_hall extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 I_A.putExtra("email", theEmail);
+                I_A.putExtra("name", name);
+                I_A.putExtra("date", date);
                 startActivity(I_A);
             }
         });
@@ -55,6 +50,8 @@ public class shift_in_hall extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 I_B.putExtra("email", theEmail);
+                I_B.putExtra("name", name);
+                I_B.putExtra("date", date);
                 startActivity(I_B);
             }
         });
@@ -63,6 +60,8 @@ public class shift_in_hall extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 I_C.putExtra("email", theEmail);
+                I_C.putExtra("name", name);
+                I_C.putExtra("date", date);
                 startActivity(I_C);
             }
         });

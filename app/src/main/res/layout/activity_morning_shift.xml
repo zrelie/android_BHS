@@ -39,12 +39,11 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_weight="0.12"
-                android:weightSum="1">
+                android:gravity="center"
+                android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:layout_width="103dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="גז פלפל"
                     android:id="@+id/checkBox"
@@ -53,7 +52,7 @@
                     android:textColor="#ffffff" />
 
                 <CheckBox
-                    android:layout_width="60dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="פנס"
                     android:id="@+id/checkBox2"
@@ -62,11 +61,10 @@
                     android:textColor="#ffffff" />
 
                 <CheckBox
-                    android:layout_width="80dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="אקדח ומחסנית"
                     android:id="@+id/checkBox3"
-                    android:layout_weight="0.56"
                     android:checked="false"
                     android:onClick="select"
                     android:textColor="#ffffff" />
@@ -76,11 +74,11 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:weightSum="1">
+                android:gravity="center"
+                android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:layout_width="96dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" מפתחות"
                     android:id="@+id/checkBox4"
@@ -152,9 +150,7 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="1"
-                android:layout_weight="0.06">
+                android:layout_height="wrap_content">
 
                 <Button
                     style="?android:attr/buttonStyleSmall"
@@ -172,7 +168,7 @@
                     android:layout_weight="0.87"
                     android:textColor="#ffffff" />
                 <CheckBox
-                    android:layout_width="114dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="בוצע בזמן"
                     android:id="@+id/checkBox9"
@@ -195,10 +191,10 @@
                     android:id="@+id/button12" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="98dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.87"
                     android:id="@+id/editText3"
-                    android:layout_weight="0.59"
                     android:textColor="#ffffff" />
 
                 <CheckBox
@@ -207,8 +203,7 @@
                     android:text="בוצע בזמן"
                     android:id="@+id/checkBox10"
                     android:textColor="#ffffff"
-                    android:onClick="select"
-                    android:layout_weight="0.13" />
+                    android:onClick="select"/>
             </LinearLayout>
 
             <LinearLayout
@@ -228,8 +223,8 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.87"
                     android:id="@+id/editText10"
-                    android:layout_weight="0.85"
                     android:textColor="#ffffff" />
 
                 <CheckBox
@@ -237,7 +232,6 @@
                     android:layout_height="wrap_content"
                     android:text="בוצע בזמן"
                     android:id="@+id/checkBox11"
-                    android:layout_weight="0.2"
                     android:onClick="select"
                     android:textColor="#ffffff" />
             </LinearLayout>
@@ -259,8 +253,8 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.87"
                     android:id="@+id/editText5"
-                    android:layout_weight="1"
                     android:textColor="#ffffff" />
 
                 <CheckBox
@@ -268,7 +262,6 @@
                     android:layout_height="wrap_content"
                     android:text="בוצע בזמן"
                     android:id="@+id/checkBox12"
-                    android:layout_weight="0.2"
                     android:onClick="select"
                     android:textColor="#ffffff" />
             </LinearLayout>
@@ -292,7 +285,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/editText6"
-                    android:layout_weight="1"
+                    android:layout_weight="0.87"
                     android:textColor="#ffffff" />
 
                 <CheckBox
@@ -300,9 +293,7 @@
                     android:layout_height="wrap_content"
                     android:text="בוצע בזמן"
                     android:id="@+id/checkBox13"
-                    android:layout_weight="0.2"
                     android:onClick="select"
-                    android:layout_margin="10dp"
                     android:textColor="#ffffff" />
             </LinearLayout>
 
@@ -310,36 +301,33 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:weightSum="1">
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="סריקת מצלמות"
-                    android:height="80dp"
+                    android:gravity="center"
                     android:id="@+id/textView6"
-                    android:layout_gravity="center_horizontal"
                     android:textColor="#2bff00" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="         יציאה לסריקה"
-                    android:height="80dp"
                     android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="יציאה לסריקה"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#2bff00" />
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.67"
-                android:weightSum="1">
+                android:layout_height="wrap_content">
 
                 <Button
                     style="?android:attr/buttonStyleSmall"
@@ -347,7 +335,7 @@
                     android:layout_height="wrap_content"
                     android:text="סרקתי מצלמות"
                     android:id="@+id/button25"
-                    android:layout_weight="0.40" />
+                    android:layout_weight="1" />
 
                 <Button
                     style="?android:attr/buttonStyleSmall"
@@ -355,7 +343,7 @@
                     android:layout_height="wrap_content"
                     android:text="יוצא לסריקה"
                     android:id="@+id/button26"
-                    android:layout_weight="0.48" />
+                    android:layout_weight="1" />
 
             </LinearLayout>
 

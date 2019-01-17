@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.amichais.bhs">
 
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -18,13 +18,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".TimeServiceSrika" />
+        <service android:name=".TimeServiceMatzlema" />
+
         <activity android:name=".Choose_a_shift" />
         <activity android:name=".shift_in_hall" />
         <activity android:name=".event_in_hall" />
         <activity android:name=".Escort" />
         <activity android:name=".Morning_shift" />
         <activity android:name=".noon_shift" />
-        <activity android:name=".night_shift"></activity>
+        <activity android:name=".night_shift" />
+        <activity android:name=".Logs"></activity>
     </application>
 
 </manifest>

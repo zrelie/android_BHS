@@ -38,12 +38,11 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_weight="0.12"
-                android:weightSum="1">
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:layout_width="103dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="גז פלפל"
                     android:id="@+id/checkBox"
@@ -52,7 +51,7 @@
                     android:textColor="#ffffff" />
 
                 <CheckBox
-                    android:layout_width="60dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="פנס"
                     android:id="@+id/checkBox2"
@@ -61,11 +60,10 @@
                     android:textColor="#ffffff" />
 
                 <CheckBox
-                    android:layout_width="80dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="אקדח ומחסנית"
                     android:id="@+id/checkBox3"
-                    android:layout_weight="0.56"
                     android:checked="false"
                     android:onClick="select"
                     android:textColor="#ffffff" />
@@ -75,11 +73,12 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="46dp"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
                 android:weightSum="1">
 
                 <CheckBox
-                    android:layout_width="96dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" מפתחות"
                     android:id="@+id/checkBox4"
@@ -291,25 +290,24 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:weightSum="1">
+                android:layout_gravity="center_horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="סריקת מצלמות"
-                    android:height="80dp"
                     android:id="@+id/textView6"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:textColor="#2bff00" />
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="         יציאה לסריקה"
-                    android:height="80dp"
+                    android:text="יציאה לסריקה"
+                    android:gravity="center_horizontal"
                     android:id="@+id/textView9"
                     android:layout_weight="1"
                     android:textColor="#2bff00" />
@@ -319,8 +317,8 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.67"
-                android:weightSum="1">
+                android:gravity="center_horizontal"
+                android:layout_weight="1.67">
 
                 <Button
                     style="?android:attr/buttonStyleSmall"
@@ -328,7 +326,7 @@
                     android:layout_height="wrap_content"
                     android:text="סרקתי מצלמות"
                     android:id="@+id/button25"
-                    android:layout_weight="0.40" />
+                    android:layout_weight="1" />
 
                 <Button
                     style="?android:attr/buttonStyleSmall"
@@ -336,7 +334,7 @@
                     android:layout_height="wrap_content"
                     android:text="יוצא לסריקה"
                     android:id="@+id/button26"
-                    android:layout_weight="0.48" />
+                    android:layout_weight="1" />
 
             </LinearLayout>
 
