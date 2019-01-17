@@ -89,7 +89,15 @@ public class event_in_hall extends AppCompatActivity {
                     SharedPreferences sp = getSharedPreferences("LogPref", MODE_PRIVATE);
                     SharedPreferences.Editor editor;
                     editor = sp.edit();
-                    editor.putString(name, "  " + date + "  אירוע");
+                    String index = "1";
+                    if(!sp.getString("index","").equals("")) {
+                        int temp = Integer.parseInt(sp.getString("index","")) + 1;
+                        index = String.valueOf(temp);
+                        editor.putString("index", index);
+                    }else
+                        editor.putString("index", "1");
+
+                    editor.putString(index+ " - " +name, "  " + date + "  אירוע");
                     editor.commit();
                     theEmail += "\n" + "-------------------------------------------------------" + "\n" + "סוג משמרת  :  אירוע ";
                     if (!isauser)

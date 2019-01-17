@@ -57,7 +57,15 @@ public class Escort extends AppCompatActivity {
                 SharedPreferences sp = getSharedPreferences("LogPref", MODE_PRIVATE);
                 SharedPreferences.Editor editor;
                 editor = sp.edit();
-                editor.putString(name, "  " + date + "  ליווי");
+                String index = "1";
+                if(!sp.getString("index","").equals("")) {
+                    int temp = Integer.parseInt(sp.getString("index","")) + 1;
+                    index = String.valueOf(temp);
+                    editor.putString("index", index);
+                }else
+                    editor.putString("index", "1");
+
+                editor.putString(index+ " - " +name, "  " + date + "  ליווי");
                 editor.commit();
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + "0525878674") );
                 intent.putExtra( "sms_body", "הליווי הסתיים" );

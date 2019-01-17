@@ -18,6 +18,8 @@ public class night_shift extends Shift_Type {
         super.onCreate(savedInstanceState);
         theEmail = getIntent().getExtras().getString("email");
         temp_mail = theEmail;
+        name = getIntent().getExtras().getString("name");
+        date = getIntent().getExtras().getString("date");
         setContentView(R.layout.activity_night_shift);
 
         time1();
@@ -48,7 +50,15 @@ public class night_shift extends Shift_Type {
                     SharedPreferences sp = getSharedPreferences("LogPref", MODE_PRIVATE);
                     SharedPreferences.Editor editor;
                     editor = sp.edit();
-                    editor.putString(name, "  " + date + "  משמרת לילה");
+                    String index = "1";
+                    if(!sp.getString("index","").equals("")) {
+                        int temp = Integer.parseInt(sp.getString("index","")) + 1;
+                        index = String.valueOf(temp);
+                        editor.putString("index", index);
+                    }else
+                        editor.putString("index", "1");
+
+                    editor.putString(index+ " - " +name, "  " + date + "  משמרת לילה");
                     editor.commit();
                     theEmail += "\n" +
                             "-------------------------------------------------------" + "\n" + "סוג משמרת :  משמרת עולמיא  ";

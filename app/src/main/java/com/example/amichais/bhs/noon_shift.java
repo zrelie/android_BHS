@@ -63,7 +63,15 @@ public class noon_shift extends Shift_Type {
                     SharedPreferences sp = getSharedPreferences("LogPref", MODE_PRIVATE);
                     SharedPreferences.Editor editor;
                     editor = sp.edit();
-                    editor.putString(name, "  " + date + "  משמרת צהריים");
+                    String index = "1";
+                    if(!sp.getString("index","").equals("")) {
+                        int temp = Integer.parseInt(sp.getString("index","")) + 1;
+                        index = String.valueOf(temp);
+                        editor.putString("index", index);
+                    }else
+                        editor.putString("index", "1");
+
+                    editor.putString(index+ " - " +name, "  " + date + "  משמרת צהריים");
                     editor.commit();
                     theEmail += "\n" +
                             "-------------------------------------------------------" + "\n" + "סוג משמרת :  משמרת עולמיא  " ;
