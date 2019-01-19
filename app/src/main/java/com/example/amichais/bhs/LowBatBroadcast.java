@@ -71,7 +71,7 @@ public class LowBatBroadcast extends BroadcastReceiver {
 
         try {
             SmsManager sm = SmsManager.getDefault();
-            sm.sendTextMessage("+972525878674", null, "הסוללה של " + name + " חלשה. הוא זמין בפלאפון החירום.", null, null);
+            sm.sendTextMessage("+972509777869", null, "הסוללה של " + name + " חלשה. הוא זמין בפלאפון החירום.", null, null);
         }catch (Exception e){}
 
     }
