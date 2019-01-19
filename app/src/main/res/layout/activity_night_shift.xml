@@ -166,10 +166,10 @@
                     android:id="@+id/button22" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="98dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/editText3"
-                    android:layout_weight="1"
+                    android:layout_weight="0.87"
                     android:textColor="#ffffff"
                     android:layout_gravity="center_vertical" />
 
@@ -178,7 +178,6 @@
                     android:layout_height="wrap_content"
                     android:text="בוצע בזמן"
                     android:id="@+id/checkBox10"
-                    android:layout_weight="0.2"
                     android:onClick="select"
                     android:textColor="#ffffff" />
             </LinearLayout>
@@ -198,10 +197,10 @@
                     android:id="@+id/button23" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="98dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/editText4"
-                    android:layout_weight="1"
+                    android:layout_weight="0.87"
                     android:textColor="#ffffff" />
 
                 <CheckBox
@@ -209,7 +208,6 @@
                     android:layout_height="wrap_content"
                     android:text="בוצע בזמן"
                     android:id="@+id/checkBox11"
-                    android:layout_weight="0.2"
                     android:onClick="select"
                     android:textColor="#ffffff" />
             </LinearLayout>
@@ -217,23 +215,22 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
+                android:layout_height="wrap_content">
 
                 <Button
                     style="?android:attr/buttonStyleSmall"
 
-                    android:layout_width="65dp"
+                    android:layout_width="68dp"
                     android:layout_height="34dp"
                     android:text="שעה"
                     android:textSize="10dp"
                     android:id="@+id/button24" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="98dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/editText5"
-                    android:layout_weight="11.62"
+                    android:layout_weight="0.87"
                     android:textColor="#ffffff" />
 
                 <CheckBox
@@ -241,7 +238,6 @@
                     android:layout_height="wrap_content"
                     android:text="בוצע בזמן"
                     android:id="@+id/checkBox12"
-                    android:layout_weight="0.2"
                     android:onClick="select"
                     android:textColor="#ffffff" />
             </LinearLayout>

@@ -58,6 +58,7 @@ public class Shift_Type extends AppCompatActivity {
             hour_x = hourOfDay;
             minute_x = minute;
             s = hour_x + " : " + minute_x + "  ";
+            numOfSricot++;
 
             if(isA ==1) {
                 EDA.setText(s);
